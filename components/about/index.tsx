@@ -1,10 +1,11 @@
-// import profilePicture from "@/img/profile/profilepic.jpg";
+import { Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ThemedText } from "../ThemedText";
 import { ThemedView } from "../ThemedView";
 import "./index.css";
+const profilePicture = require( "../../assets/images/profile/profilepic.jpg");
 
 const About = () => (
   <ThemedView
@@ -23,11 +24,11 @@ const About = () => (
           React Specialist
         </ThemedText>
       </ThemedView>
-      {/* <Image
+      <Image
         className="rounded-full w-28 h-28 md:w-40 md:h-40 border-4 border-[#4294ff]"
-        src={profilePicture}
+        source={profilePicture}
         alt="Axel Soler"
-      /> */}
+      />
     </ThemedView>
     <ThemedView className="flex flex-col items-center md:w-4/5">
       <ThemedView className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2 text-left text-sm md:text-lg">
