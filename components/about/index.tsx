@@ -6,7 +6,7 @@ import { ThemedText } from "../ThemedText";
 import { ThemedView } from "../ThemedView";
 import * as Linking from "expo-linking";
 import Stack from "./Stack";
-const profilePicture = require("../../assets/images/profile/profilepic.jpg");
+const profilePicture = require("@/assets/images/profile/profilepic.jpg");
 
 const About = () => (
   <ThemedView className="text-center flex flex-col items-center" id="about">
@@ -55,7 +55,7 @@ const About = () => (
           </ThemedText>
           <ThemedView>
             <Pressable
-              className="flex flex-row justify-center items-center gap-2 p-2 my-4 bg-green-600 text-white font-bold rounded-xl"
+              className="flex flex-row justify-center items-center gap-2 p-4 my-4 bg-green-600 text-white font-bold rounded-xl"
               onPress={() =>
                 Linking.openURL(
                   "https://drive.google.com/file/d/1Ful06pTzhNJO2ErFBoUAmNYZEsEeN1F2/view?usp=drive_link"
