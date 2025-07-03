@@ -24,7 +24,11 @@ const Stack = () => (
           <ThemedText>React</ThemedText>
         </ThemedView>
         <ThemedView className="flex flex-col items-center justify-center">
-          <Ionicons name="logo-react" size={40} color="#FFF" />
+          
+          <Image
+            source={require("../../assets/images/icons/next-logo.png")}
+            style={{ width: 40, height: 40, backgroundColor: "transparent" }}
+          />
           <ThemedText>Next.js</ThemedText>
         </ThemedView>
         <ThemedView className="flex flex-col items-center justify-center">
@@ -84,7 +88,7 @@ const Stack = () => (
         <ThemedView className="flex flex-col items-center justify-center">
           <Image
             source={require("../../assets/images/icons/postgresql-logo.png")}
-            style={{ width: 50, height: 50, backgroundColor: "#fff" }}
+            style={{ width: 40, height: 40, backgroundColor: "transparent" }}
           />
           <ThemedText>PostgreSQL</ThemedText>
         </ThemedView>
@@ -108,14 +112,14 @@ const Stack = () => (
         <ThemedView className="flex flex-col items-center justify-center">
           <Image
             source={require("../../assets/images/icons/jest-logo.png")}
-            style={{ width: 50, height: 50, backgroundColor: "#fff" }}
+            style={{ width: 40, height: 40, backgroundColor: "transparent" }}
           />
           <ThemedText>Jest</ThemedText>
         </ThemedView>
         <ThemedView className="flex flex-col items-center justify-center">
           <Image
             source={require("../../assets/images/icons/rspec-logo.png")}
-            style={{ width: 50, height: 50, backgroundColor: "#fff" }}
+            style={{ width: 40, height: 40, backgroundColor: "transparent" }}
           />
           <ThemedText>RSpec</ThemedText>
         </ThemedView>
@@ -135,17 +139,17 @@ const Stack = () => (
         <ThemedView className="flex flex-col items-center justify-center">
           <Image
             source={require("../../assets/images/icons/postman-logo.png")}
-            style={{ width: 50, height: 50, backgroundColor: "#fff" }}
+            style={{ width: 50, height: 50, backgroundColor: "transparent" }}
           />
           <ThemedText>Postman</ThemedText>
         </ThemedView>
         <ThemedView className="flex flex-col items-center justify-center">
           <MaterialCommunityIcons
-            name="language-cpp"
+            name="language-csharp"
             color="#00BFFF"
             size={40}
           />
-          <ThemedText>C++</ThemedText>
+          <ThemedText>C#</ThemedText>
         </ThemedView>
       </ThemedView>
     </ThemedView>
