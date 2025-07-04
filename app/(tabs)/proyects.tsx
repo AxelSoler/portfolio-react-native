@@ -11,46 +11,59 @@ import { ThemedView } from "@/components/ThemedView";
 
 export default function TabThreeScreen() {
   const [projectsModal, setProjectsModal] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <ThemedText style={styles.heading}>Professional Experience</ThemedText>
 
-      <ThemedView style={styles.card}>
-        <ThemedText style={styles.role}>Frontend Developer – GoodSoftwareDev</ThemedText>
-        <ThemedText style={styles.dates}>2022 – Present</ThemedText>
-        <ThemedText style={styles.paragraph}>
-          Since 2022, I’ve been part of the development team at GoodSoftwareDev,
-          working on the design, development, and maintenance of modern,
-          scalable user interfaces using technologies such as React.js and
-          Tailwind CSS.
+          <ThemedView style={styles.card}>
+      <ThemedText style={styles.role}>
+        Frontend Developer – GoodSoftwareDev
+      </ThemedText>
+      <ThemedText style={styles.dates}>2022 – Present</ThemedText>
 
-          {"\n\n"}I’ve contributed to building interactive dashboards,
-          SEO-optimized landing pages, and reusable components focused on
-          performance and accessibility. I collaborate closely with UI/UX
-          designers and backend developers to ensure seamless integration
-          between frontend interfaces and REST APIs.
+      <ThemedText
+        style={styles.paragraph}
+        numberOfLines={expanded ? undefined : 10} // Mostrar solo 10 líneas si no está expandido
+      >
+        Since 2022, I’ve been part of the development team at GoodSoftwareDev,
+        working on the design, development, and maintenance of modern,
+        scalable user interfaces using technologies such as React.js and
+        Tailwind CSS.
 
-          {"\n\n"}Throughout this experience, I’ve developed strong proficiency
-          with tools like Git, Figma, Notion, and Postman for continuous
-          deployment.
+        {"\n\n"}I’ve contributed to building interactive dashboards,
+        SEO-optimized landing pages, and reusable components focused on
+        performance and accessibility. I collaborate closely with UI/UX
+        designers and backend developers to ensure seamless integration
+        between frontend interfaces and REST APIs.
 
-          {"\n\n"}This role has not only enhanced my technical skill set but
-          also strengthened my soft skills, such as effective communication
-          within distributed teams, accurate task estimation, and the ability
-          to quickly adapt to new projects and technologies in agile
-          environments.
+        {"\n\n"}Throughout this experience, I’ve developed strong proficiency
+        with tools like Git, Figma, Notion, and Postman for continuous
+        deployment.
 
-          {"\n\n"}I always strive to deliver clean, maintainable, and scalable
-          code, with a strong focus on quality, performance, and client
-          satisfaction.
+        {"\n\n"}This role has not only enhanced my technical skill set but
+        also strengthened my soft skills, such as effective communication
+        within distributed teams, accurate task estimation, and the ability
+        to quickly adapt to new projects and technologies in agile
+        environments.
 
-          {"\n\n"}This role has not only enhanced my technical skills but also
-          helped me grow professionally in remote work environments. I’ve
-          gained significant experience working asynchronously with
-          international teams, participating in code reviews, and contributing
-          to shared goals across different time zones.
+        {"\n\n"}I always strive to deliver clean, maintainable, and scalable
+        code, with a strong focus on quality, performance, and client
+        satisfaction.
+
+        {"\n\n"}This role has not only enhanced my technical skills but also
+        helped me grow professionally in remote work environments. I’ve
+        gained significant experience working asynchronously with
+        international teams, participating in code reviews, and contributing
+        to shared goals across different time zones.
+      </ThemedText>
+
+      <TouchableOpacity onPress={() => setExpanded(!expanded)}>
+        <ThemedText style={styles.toggleText}>
+          {expanded ? "Show less" : "Show more"}
         </ThemedText>
-      </ThemedView>
+      </TouchableOpacity>
+    </ThemedView>
 
       <ThemedView style={styles.buttonContainer}>
         <TouchableOpacity
@@ -114,5 +127,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "600",
     fontSize: 16,
+  },
+  toggleText: {
+    marginTop: 8,
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#4F46E5", // Indigo-600
+    textAlign: "right",
   },
 });
