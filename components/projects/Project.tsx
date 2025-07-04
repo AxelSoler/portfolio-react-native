@@ -1,11 +1,11 @@
-import Image from "next/image";
-import type { StaticImageData } from "next/image";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { Feather, FontAwesome } from "@expo/vector-icons";
 
-type projectProps = {
+type ProjectProps = {
   name: string;
   description: string;
   longDescription?: string;
-  image: StaticImageData;
+  image: any;
   live: string;
   repository: string;
   technologies: string[];
@@ -17,65 +17,119 @@ const Project = ({
   project,
   isEven
 }: {
-  project: projectProps;
+  project: ProjectProps;
   isEven: boolean;
 }) => {
+  const handleLink = async (url: string) => {
+    const supported = await Linking.canOpenURL(url);
+    if (supported) await Linking.openURL(url);
+  };
+
   return (
-    <div
-      id={project.name}
-      className={`bg-gray-600/30 dark:bg-black/60 flex flex-col xl:flex-row items-center p-4 md:p-6 lg:p-8 rounded ${
-        isEven ? "xl:flex-row" : "xl:flex-row-reverse"
-      } gap-6`}
+    <View
+      style={[
+        styles.container,
+        { flexDirection: isEven ? "row" : "row-reverse" },
+      ]}
     >
       <Image
-        src={project.image}
-        alt={project.name}
-        className="w-[400px] h-[250px] object-contain rounded-xl"
+        source={project.image}
+        style={styles.image}
+        resizeMode="contain"
       />
-      <div className="flex flex-col gap-4">
-        <h3 className="underline font-bold lg:text-xl">{project.name}</h3>
-        <p className="md:text-lg">
-          {project.longDescription
-            ? project.longDescription
-            : project.description}
-        </p>
-        {/* <div className="flex justify-evenly w-full mt-auto">
+      <View style={styles.content}>
+        <Text style={styles.title}>{project.name}</Text>
+        <Text style={styles.description}>
+          {project.longDescription || project.description}
+        </Text>
+        <View style={styles.links}>
           {project.live === "private" ? (
-            <span className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:scale-105 transform transition duration-300 cursor-not-allowed opacity-50 flex items-center gap-1">
-              Private
-              <HiOutlineExternalLink />
-            </span>
+            <View style={[styles.button, styles.disabled]}>
+              <Text style={styles.buttonText}>Private</Text>
+              <Feather name="external-link" size={16} color="#fff" />
+            </View>
           ) : (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:scale-105 transform transition duration-300 cursor-pointer flex items-center gap-1"
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => handleLink(project.live)}
             >
-              Live Site
-              <HiOutlineExternalLink />
-            </a>
+              <Text style={styles.buttonText}>Live Site</Text>
+              <Feather name="external-link" size={16} color="#fff" />
+            </TouchableOpacity>
           )}
           {project.repository === "private" ? (
-            <span className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:scale-105 transform transition duration-300 cursor-not-allowed opacity-50 flex items-center gap-1">
-              Private
-              <FaGithub />
-            </span>
+            <View style={[styles.button, styles.disabled]}>
+              <Text style={styles.buttonText}>Private</Text>
+              <FontAwesome name="github" size={16} color="#fff" />
+            </View>
           ) : (
-            <a
-              href={project.repository}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:scale-105 transform transition duration-300 cursor-pointer flex items-center gap-1"
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => handleLink(project.repository)}
             >
-              Repository
-              <FaGithub />
-            </a>
+              <Text style={styles.buttonText}>Repository</Text>
+              <FontAwesome name="github" size={16} color="#fff" />
+            </TouchableOpacity>
           )}
-        </div> */}
-      </div>
-    </div>
+        </View>
+      </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "rgba(75, 85, 99, 0.3)",
+    padding: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    gap: 16,
+  },
+  image: {
+    width: 200,
+    height: 130,
+    borderRadius: 12,
+    backgroundColor: "#fff",
+  },
+  content: {
+    flex: 1,
+    gap: 8,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textDecorationLine: "underline",
+  },
+  description: {
+    fontSize: 16,
+  },
+  links: {
+    marginTop: 12,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    gap: 12,
+    flexWrap: "wrap",
+  },
+  button: {
+    flexDirection: "row",
+    backgroundColor: "#6366F1",
+    paddingVertical: 10,
+    paddingHorizontal: 18,
+    borderRadius: 999,
+    alignItems: "center",
+    gap: 6,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "600",
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+});
 
 export default Project;
