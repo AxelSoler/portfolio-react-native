@@ -19,9 +19,9 @@ export default function HomeScreen() {
               <ThemedText className="text-lg">React Specialist</ThemedText>
             </ThemedView>
             <Image
-              className="rounded-full w-28 h-28 border-4 border-[#4294ff]"
               source={profilePicture}
               alt="Axel Soler"
+              style={styles.profileImage}
             />
           </ThemedView>
           <ThemedView className="flex flex-col items-center w-4/5">
@@ -82,7 +82,17 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
     paddingTop: 48,
+    padding: 24,
     flexDirection: "column",
     alignItems: "center",
-  }
+  },
+  profileImage: {
+    width: 128,
+    height: 128,
+    borderRadius: 128 / 2,
+    borderWidth: 4,
+    borderColor: "#4294ff",
+    marginBottom: 8,
+    marginTop: 8,
+  },
 });
