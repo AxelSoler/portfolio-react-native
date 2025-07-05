@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { AntDesign, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -6,8 +6,8 @@ import { ThemedText } from "../ThemedText";
 import { ThemedView } from "../ThemedView";
 
 const Stack = () => (
-  <ThemedView className="bg-gray-600/30 dark:bg-black/60 rounded-2xl mt-4">
-    <ThemedText className="text-left text-3xl font-bold border-b border-black dark:border-white">
+  <ThemedView className="rounded-2xl mt-4">
+    <ThemedText style={styles.subtitle}>
       Core Stack
     </ThemedText>
     <ThemedView className="py-4 px-0 flex flex-col gap-y-4 text-xs">
@@ -155,5 +155,16 @@ const Stack = () => (
     </ThemedView>
   </ThemedView>
 );
+
+const styles = StyleSheet.create({
+  subtitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#fff"
+  },
+});
+
 
 export default Stack;
