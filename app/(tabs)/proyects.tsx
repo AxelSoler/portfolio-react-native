@@ -166,7 +166,6 @@ export default function TabThreeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    paddingTop: 64,
     paddingBottom: 32,
     gap: 20
   },
