@@ -173,7 +173,6 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 28,
     fontWeight: "bold",
-    textDecorationLine: "underline",
     textAlign: "center",
     marginTop: 12,
     marginBottom: 20,

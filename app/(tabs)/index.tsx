@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
-  Image,
   Pressable,
   TouchableOpacity
 } from "react-native";
@@ -11,6 +10,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { Octicons } from "@expo/vector-icons";
 import * as Linking from "expo-linking";
 import Stack from "@/components/coreStack/Stack";
+import LoadImage from "@/components/loadImage/Index";
 const profilePicture = require("@/assets/images/profile/profilepic.jpg");
 
 export default function HomeScreen() {
@@ -26,11 +26,7 @@ export default function HomeScreen() {
             </ThemedText>
             <ThemedText className="text-lg">React Specialist</ThemedText>
           </ThemedView>
-          <Image
-            source={profilePicture}
-            alt="Axel Soler"
-            style={styles.profileImage}
-          />
+          <LoadImage source={profilePicture} containerStyle={styles.profileImage} />
         </ThemedView>
         <ThemedView className="flex flex-col items-center w-4/5">
           <ThemedView className="space-y-4 mt-2 text-left text-sm">

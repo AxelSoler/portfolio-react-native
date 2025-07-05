@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   TextLayoutEventData,
   NativeSyntheticEvent,
-  Image,
   StyleSheet,
   TouchableOpacity,
   Linking
@@ -10,6 +9,7 @@ import {
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Feather, FontAwesome } from "@expo/vector-icons";
+import LoadImage from "../loadImage/Index";
 
 type ProjectProps = {
   name: string;
@@ -39,7 +39,8 @@ const Project = ({ project }: { project: ProjectProps }) => {
 
   return (
     <ThemedView style={[styles.container]}>
-      <Image source={project.image} style={styles.image} resizeMode="contain" />
+      <LoadImage source={project.image} containerStyle={styles.image} />
+      {/* <Image source={project.image} style={styles.image} resizeMode="contain" /> */}
       <ThemedView style={styles.content}>
         <ThemedText style={styles.title}>{project.name}</ThemedText>
         <ThemedText
@@ -93,7 +94,8 @@ const styles = StyleSheet.create({
     width: 200,
     height: 130,
     borderRadius: 12,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    objectFit: "contain"
   },
   content: {
     flex: 1,
