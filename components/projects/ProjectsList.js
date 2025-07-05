@@ -1,10 +1,10 @@
-import yellowroomsimg from "../../img/projects/YellowRooms.png";
-import monsterimg from "../../img/projects/MonsterHunterWorld.png";
-import mycroverseimg from "../../img/projects/Mycroverse2.0.png";
-import afi from "../../img/projects/afi.png";
-import rocketbooking from "../../img/projects/rp1.png";
-import homeplate from "../../img/projects/homeplate.png";
-import ghs from "../../img/projects/ghs.png";
+import yellowroomsimg from "@/assets/images/projects/YellowRooms.png";
+import monsterimg from "@/assets/images/projects/MonsterHunterWorld.png";
+import mycroverseimg from "@/assets/images/projects/Mycroverse2.0.png";
+import afi from "@/assets/images/projects/afi.png";
+import rocketbooking from "@/assets/images/projects/rp1.png";
+import homeplate from "@/assets/images/projects/homeplate.png";
+import ghs from "@/assets/images/projects/ghs.png";
 
 const projects = [
   {

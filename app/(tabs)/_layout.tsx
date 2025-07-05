@@ -36,7 +36,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="proyects"
         options={{
-          title: 'Proyects',
+          title: 'Professional',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="briefcase.fill" color={color} />,
         }}
       />
