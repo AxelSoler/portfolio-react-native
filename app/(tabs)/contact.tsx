@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { Octicons } from "@expo/vector-icons";
+import { useColorScheme } from "@/hooks/useColorScheme.web";
 
 type FormValues = {
   username: string;
@@ -89,6 +90,10 @@ export default function TabTwoScreen() {
       setStatus("error");
     }
   };
+  
+  const theme = useColorScheme() ?? 'light';
+
+  const inputColor = theme === 'light' ? "#000" : "#fff";
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -97,35 +102,44 @@ export default function TabTwoScreen() {
         Looking for a developer? Send me a message!
       </ThemedText>
 
+      <ThemedText style={styles.label}>
+        Your Name
+      </ThemedText>
       <TextInput
         placeholder="Name"
         value={formValues.username}
         onChangeText={(value) => handleChange("username", value)}
-        style={styles.input}
+        style={[styles.input, { color: inputColor }]}
         placeholderTextColor="#888"
       />
       {errors.username && (
         <ThemedText style={styles.error}>{errors.username}</ThemedText>
       )}
 
+      <ThemedText style={styles.label}>
+        Your Email
+      </ThemedText>
       <TextInput
         placeholder="Email"
         value={formValues.userEmail}
         onChangeText={(value) => handleChange("userEmail", value)}
         keyboardType="email-address"
         autoCapitalize="none"
-        style={styles.input}
+        style={[styles.input, { color: inputColor }]}
         placeholderTextColor="#888"
       />
       {errors.userEmail && (
         <ThemedText style={styles.error}>{errors.userEmail}</ThemedText>
       )}
 
+      <ThemedText style={styles.label}>
+        Your Message
+      </ThemedText>
       <TextInput
         placeholder="Enter your message"
         value={formValues.message}
         onChangeText={(value) => handleChange("message", value)}
-        style={[styles.input, styles.textarea]}
+        style={[styles.input, styles.textarea, { color: inputColor }]}
         multiline
         numberOfLines={4}
         placeholderTextColor="#888"
@@ -197,6 +211,12 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginBottom: 20,
     textAlign: "center"
+  },
+  label: {
+    fontSize: 16,
+    margin: 4,
+    textAlign: "left",
+    marginRight: "auto"
   },
   input: {
     width: "100%",

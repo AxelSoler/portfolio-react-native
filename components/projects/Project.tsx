@@ -38,10 +38,10 @@ const Project = ({ project }: { project: ProjectProps }) => {
   };
 
   return (
-    <ThemedView style={[styles.container]}>
+    <ThemedView style={[styles.container]} lightColor="rgba(75, 85, 99, 0.3)">
       <LoadImage source={project.image} containerStyle={styles.image} />
       {/* <Image source={project.image} style={styles.image} resizeMode="contain" /> */}
-      <ThemedView style={styles.content}>
+      <ThemedView style={styles.content} lightColor="transparent">
         <ThemedText style={styles.title}>{project.name}</ThemedText>
         <ThemedText
           style={styles.description}

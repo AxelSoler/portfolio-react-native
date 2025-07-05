@@ -30,9 +30,9 @@ const StackSection = ({ title, items }: StackSectionProps) => {
 
   return (
     <TouchableWithoutFeedback onPress={handleOutsidePress}>
-      <ThemedView className="bg-[#1a1a1a] rounded-xl p-4">
+      <ThemedView className="bg-[#1a1a1a] rounded-xl p-4 mb-4" lightColor="rgba(75, 85, 99, 0.3)">
         <ThemedText className="font-bold text-base underline mb-4">{title}</ThemedText>
-        <ThemedView className="flex flex-row flex-wrap justify-center gap-4">
+        <ThemedView className="flex flex-row flex-wrap justify-center gap-2" lightColor="transparent">
           {items.map(({ icon, label }, index) => (
             <Pressable
               key={index}
@@ -43,7 +43,7 @@ const StackSection = ({ title, items }: StackSectionProps) => {
             >
               {icon}
               {(activeIndex === index || !isMobile) && (
-                <ThemedText className="text-center text-sm mt-1 leading-tight">{label}</ThemedText>
+                <ThemedText className="text-center text-sm mt-1 leading-tight" lightColor="white">{label}</ThemedText>
               )}
             </Pressable>
           ))}

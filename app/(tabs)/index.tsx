@@ -18,8 +18,8 @@ export default function HomeScreen() {
   return (
     <ScrollView>
       <ThemedView style={styles.container}>
-        <ThemedView className="flex flex-row items-center justify-evenly w-full text-left rounded-2xl" style={styles.header}>
-          <ThemedView>
+        <ThemedView lightColor="rgba(75, 85, 99, 0.3)" className="flex flex-row items-center justify-evenly w-full text-left rounded-2xl" style={styles.header}>
+          <ThemedView lightColor="transparent">
             <ThemedText className="text-xl font-bold">AXEL SOLER</ThemedText>
             <ThemedText className="text-lg font-bold">
               Full Stack Developer
@@ -30,7 +30,7 @@ export default function HomeScreen() {
         </ThemedView>
         <ThemedView className="flex flex-col items-center w-4/5">
           <ThemedView className="space-y-4 mt-2 text-left text-sm">
-            <ThemedView className="flex flex-col gap-4 rounded-2xl">
+            <ThemedView className="flex flex-col gap-4 rounded-2xl p-4" lightColor="rgba(75, 85, 99, 0.3)">
               <ThemedText style={styles.subtitle}>
                 About Me
               </ThemedText>
@@ -56,7 +56,7 @@ export default function HomeScreen() {
                   {expanded ? "Show less" : "Show more"}
                 </ThemedText>
               </TouchableOpacity>
-              <ThemedView>
+              <ThemedView lightColor="transparent">
                 <Pressable
                   style={styles.resumeLink}
                   onPress={() =>
@@ -65,7 +65,7 @@ export default function HomeScreen() {
                     )
                   }
                 >
-                  <ThemedText className="bg-transparent">
+                  <ThemedText style={styles.resumeText} className="bg-transparent">
                     My Resume on Google Drive
                   </ThemedText>
                   <Octicons name="link-external" size={20} color="white" />
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "#4F46E5",
-    textAlign: "right"
+    textAlign: "right",
   },
   resumeLink: {
     flexDirection: "row",
@@ -128,5 +128,11 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 24,
     fontWeight: "600",
-  }
+  },
+  resumeText: {
+    color: "#fff",
+    fontWeight: "600",
+    fontSize: 18,
+    textAlign: "center"
+  },
 });
