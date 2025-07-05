@@ -10,7 +10,7 @@ const Stack = () => (
     <ThemedText style={styles.subtitle}>
       Core Stack
     </ThemedText>
-    <ThemedView className="py-4 px-0 flex flex-col gap-y-4 text-xs">
+    <ThemedView className="pt-4 px-0 flex flex-col gap-y-2 text-xs">
       <ThemedView className="flex items-center">
         <ThemedText className="font-bold underline">Frontend</ThemedText>
       </ThemedView>
