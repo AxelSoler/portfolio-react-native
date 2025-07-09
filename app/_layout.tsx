@@ -8,6 +8,7 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { Analytics } from '@vercel/analytics/next';
 import "react-native-reanimated";
 import "../global.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
+      <Analytics />
     </ThemeProvider>
   );
 }
